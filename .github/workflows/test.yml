@@ -12,10 +12,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24' # Use a specific Node version
-          cache: 'yarn'
+          cache: 'npm'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Move sample wrangler.toml
-        run: mv wrangler.toml.sample wrangler.toml
+        run: npm ci
       - name: Run tests
-        run: yarn test
+        run: npm test -- --run
